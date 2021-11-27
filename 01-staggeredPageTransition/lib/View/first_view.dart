@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'second_view.dart';
 
 class FirstView extends StatelessWidget {
   const FirstView({Key? key}) : super(key: key);
@@ -9,11 +8,7 @@ class FirstView extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const SecondView(),
-            ),
-          );
+          Navigator.of(context).pushNamed('/');
         },
         child: const Icon(Icons.keyboard_arrow_right),
       ),
