@@ -12,6 +12,7 @@ class StaggeredPageTransitionDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Custom Page Transitions',
+      debugShowCheckedModeBanner: false,
       home: const FirstView(),
       onGenerateRoute: _generateRoute,
       theme: ThemeData.light().copyWith(

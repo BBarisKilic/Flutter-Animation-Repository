@@ -16,13 +16,49 @@ class SecondView extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: Container(
-              color: Colors.red,
+            child: AnimatedBuilder(
+              animation: transitionAnimation,
+              builder: (BuildContext context, Widget? child) {
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(1, 0),
+                    end: const Offset(0, 0),
+                  ).animate(
+                    CurvedAnimation(
+                      parent: transitionAnimation,
+                      curve: const Interval(0.0, 0.5,
+                          curve: Curves.easeInOutCubic),
+                    ),
+                  ),
+                  child: child,
+                );
+              },
+              child: Container(
+                color: Colors.red,
+              ),
             ),
           ),
           Expanded(
-            child: Container(
-              color: Colors.green,
+            child: AnimatedBuilder(
+              animation: transitionAnimation,
+              builder: (BuildContext context, Widget? child) {
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(-1, 0),
+                    end: const Offset(0, 0),
+                  ).animate(
+                    CurvedAnimation(
+                      parent: transitionAnimation,
+                      curve: const Interval(0.5, 1.0,
+                          curve: Curves.easeInOutCubic),
+                    ),
+                  ),
+                  child: child,
+                );
+              },
+              child: Container(
+                color: Colors.green,
+              ),
             ),
           ),
         ],
